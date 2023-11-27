@@ -1,0 +1,35 @@
+diff --git a/package.json b/package.json
+index 52a84ce0770e9edcf8d681e4382baa997a39fb81..779d3e47da6c547317e8e6c5e66fbc95a23d0dc2 100644
+--- a/package.json
++++ b/package.json
+@@ -24,10 +24,16 @@
+       "import": "./es/index.mjs",
+       "require": "./lib/index.js"
+     },
+-    "./es": "./es/index.mjs",
++    "./es": {
++      "types": "./es/index.d.ts",
++      "import": "./es/index.mjs"
++    },
+     "./lib": "./lib/index.js",
+     "./es/*.mjs": "./es/*.mjs",
+-    "./es/*": "./es/*.mjs",
++    "./es/*": {
++      "types": "./es/*/index.d.ts",
++      "import": "./es/*.mjs"
++    },
+     "./lib/*.js": "./lib/*.js",
+     "./lib/*": "./lib/*.js",
+     "./*": "./*"
+@@ -80,10 +86,6 @@
+     "attributes": "attributes.json"
+   },
+   "web-types": "web-types.json",
+-  "browserslist": [
+-    "> 1%",
+-    "not ie 11",
+-    "not op_mini all"
+-  ],
++  "browserslist": ["> 1%", "not ie 11", "not op_mini all"],
+   "gitHead": "8bd65257ed67f0aa4c55eed168cd149a7911c80d"
+ }
